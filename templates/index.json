@@ -9,6 +9,15 @@
  */
 {
   "sections": {
+    "test_gallery_tJVHeg": {
+      "type": "test-gallery",
+      "settings": {
+        "image_1": "shopify://shop_images/cbe71271-907d-45d1-aa49-1b12f75cf22a.jpg",
+        "image_2": "shopify://shop_images/cbe71271-907d-45d1-aa49-1b12f75cf22a.jpg",
+        "image_3": "shopify://shop_images/cbe71271-907d-45d1-aa49-1b12f75cf22a.jpg",
+        "image_4": "shopify://shop_images/cbe71271-907d-45d1-aa49-1b12f75cf22a.jpg"
+      }
+    },
     "image_banner": {
       "type": "image-banner",
       "blocks": {
@@ -181,6 +190,7 @@
     }
   },
   "order": [
+    "test_gallery_tJVHeg",
     "image_banner",
     "collection_list_PjAdqM",
     "rich_text_x73MDJ",
