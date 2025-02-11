@@ -36,6 +36,7 @@ footer .footer__content-top{
     }
     header svg.icon.icon-cart-empty, header svg.icon.icon-cart{
         height: 34px;
+        margin-right: 0;
     }
     header svg.icon.icon-hamburger{
         height: 14px;
@@ -46,6 +47,9 @@ footer .footer__content-top{
     }
     header svg.icon.icon-close{
         height: 14px;
+    }
+    header .header__icons{
+        padding: 0;
     }
 
     /* Footer */
