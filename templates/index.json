@@ -17,35 +17,9 @@
         "cta_url": "shopify://collections/all",
         "background_image": "shopify://shop_images/pexels-karolina-grabowska-6328859_3.jpg"
       }
-    },
-    "newsletter_LKe9HJ": {
-      "type": "newsletter",
-      "blocks": {
-        "paragraph_8DTefa": {
-          "type": "paragraph",
-          "settings": {
-            "text": "<p>Be the first to know about new collections and exclusive offers.</p>"
-          }
-        },
-        "email_form_xaK6W8": {
-          "type": "email_form",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "paragraph_8DTefa",
-        "email_form_xaK6W8"
-      ],
-      "settings": {
-        "color_scheme": "",
-        "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 52
-      }
     }
   },
   "order": [
-    "hero_eLccGF",
-    "newsletter_LKe9HJ"
+    "hero_eLccGF"
   ]
 }
