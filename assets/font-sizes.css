@@ -86,4 +86,8 @@ a.menu-drawer__menu-item:hover, a.header__menu-item span:hover{
     font-size: 25px;
   }
 
+  .announcement-bar__message span{
+    font-size: 10px;
+  }
+
 }
