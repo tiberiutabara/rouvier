@@ -51,6 +51,9 @@ footer .footer__content-top{
     header .header__icons{
         padding: 0;
     }
+    .menu-drawer__menu-item--active{
+        background: none !important;
+    }
 
     /* Footer */
     footer.footer{
