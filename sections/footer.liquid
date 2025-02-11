@@ -48,6 +48,11 @@
     and has_social_icons == true
     or section.settings.enable_follow_on_shop
   -%}
+
+  
+    <p class="text-center text-[15px]!">Made by Tiberiu Tabara</p>
+
+
     {%- unless only_empty_brand -%}
       <div class="footer__content-top page-width">
         {%- if section.blocks.size > 0 -%}
@@ -65,7 +70,7 @@
             {% if settings.animations_reveal_on_scroll %}
               data-cascade
             {% endif %}
-          >
+          > 
             {%- for block in section.blocks -%}
               <div
                 class="footer-block grid__item{% if block.type == 'link_list' %} footer-block--menu{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
@@ -250,6 +255,7 @@
     {%- endunless -%}
   {%- endif -%}
 
+  <!-- 
   <div
     class="footer__content-bottom{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
     {% if settings.animations_reveal_on_scroll %}
@@ -282,6 +288,7 @@
           </localization-form>
         {%- endif -%}
       </div>
+      
       <div class="footer__column footer__column--info">
         {%- if section.settings.payment_enable -%}
           <div class="footer__payment">
@@ -319,6 +326,9 @@
       </div>
     </div>
   </div>
+  -->
+
+  <a href="{{ site.baseurl }}/policies/privacy-policy" class="block text-center underline text-[#252827]/100! text-[15px]!">Read policy</a>
 </footer>
 
 {% schema %}

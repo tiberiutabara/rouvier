@@ -299,6 +299,7 @@
 
     {{ "tailwind.output.css" | asset_url | stylesheet_tag }}
     {{ "font-sizes.css" | asset_url | stylesheet_tag }}
+    {{ "base-overrides.css" | asset_url | stylesheet_tag }}
   </head>
 
   <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">

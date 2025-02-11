@@ -794,6 +794,15 @@
   .\!text-\[48px\] {
     font-size: 48px !important;
   }
+  .text-\[14px\] {
+    font-size: 14px;
+  }
+  .text-\[15px\] {
+    font-size: 15px;
+  }
+  .text-\[15px\]\! {
+    font-size: 15px !important;
+  }
   .text-\[16px\] {
     font-size: 16px;
   }
@@ -808,8 +817,20 @@
   .\!text-\[\#FBFDFE\] {
     color: #FBFDFE !important;
   }
+  .text-\[\#252827\] {
+    color: #252827;
+  }
+  .text-\[\#252827\]\/100 {
+    color: color-mix(in oklab, #252827 100%, transparent);
+  }
+  .text-\[\#252827\]\/100\! {
+    color: color-mix(in oklab, #252827 100%, transparent) !important;
+  }
   .text-\[\#FBFDFE\] {
     color: #FBFDFE;
+  }
+  .text-black {
+    color: var(--color-black);
   }
   .text-white {
     color: var(--color-white);
