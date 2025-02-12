@@ -17,9 +17,48 @@
         "cta_url": "shopify://collections/all",
         "background_image": "shopify://shop_images/pexels-karolina-grabowska-6328859_3.jpg"
       }
+    },
+    "custom_collections_xHTyPg": {
+      "type": "custom-collections",
+      "blocks": {
+        "collection_block_hypAzr": {
+          "type": "collection_block",
+          "settings": {
+            "collection": "all"
+          }
+        },
+        "collection_block_QFL8GP": {
+          "type": "collection_block",
+          "settings": {
+            "collection": "all"
+          }
+        },
+        "collection_block_CfAVDh": {
+          "type": "collection_block",
+          "settings": {
+            "collection": "all"
+          }
+        },
+        "collection_block_VKNERt": {
+          "type": "collection_block",
+          "settings": {
+            "collection": "all"
+          }
+        }
+      },
+      "block_order": [
+        "collection_block_hypAzr",
+        "collection_block_QFL8GP",
+        "collection_block_CfAVDh",
+        "collection_block_VKNERt"
+      ],
+      "settings": {
+        "heading": "Collections"
+      }
     }
   },
   "order": [
-    "hero_eLccGF"
+    "hero_eLccGF",
+    "custom_collections_xHTyPg"
   ]
 }
