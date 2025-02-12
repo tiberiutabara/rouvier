@@ -56,6 +56,37 @@
         "heading": "Collections"
       }
     },
+    "deals_EY6Lfc": {
+      "type": "deals",
+      "blocks": {
+        "collection_block_KNT3jK": {
+          "type": "collection_block",
+          "settings": {
+            "collection": ""
+          }
+        },
+        "collection_block_hV9zMQ": {
+          "type": "collection_block",
+          "settings": {
+            "collection": ""
+          }
+        },
+        "collection_block_iJNnmr": {
+          "type": "collection_block",
+          "settings": {
+            "collection": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_block_KNT3jK",
+        "collection_block_hV9zMQ",
+        "collection_block_iJNnmr"
+      ],
+      "settings": {
+        "heading": "Special deals"
+      }
+    },
     "custom_text_section_6U4rpX": {
       "type": "custom-text-section",
       "settings": {
@@ -70,6 +101,7 @@
   "order": [
     "hero_eLccGF",
     "custom_collections_xHTyPg",
+    "deals_EY6Lfc",
     "custom_text_section_6U4rpX"
   ]
 }
