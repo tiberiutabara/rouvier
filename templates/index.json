@@ -24,25 +24,25 @@
         "collection_block_hypAzr": {
           "type": "collection_block",
           "settings": {
-            "collection": "all"
+            "collection": "watch-accessories"
           }
         },
         "collection_block_QFL8GP": {
           "type": "collection_block",
           "settings": {
-            "collection": "all"
+            "collection": "new-arrivals"
           }
         },
         "collection_block_CfAVDh": {
           "type": "collection_block",
           "settings": {
-            "collection": "all"
+            "collection": "limited-edition"
           }
         },
         "collection_block_VKNERt": {
           "type": "collection_block",
           "settings": {
-            "collection": "all"
+            "collection": "comingg-soon"
           }
         }
       },
