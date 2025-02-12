@@ -1,0 +1,25 @@
+.rouvier-button {
+    font-family: "Quattrocento Sans", serif;
+    font-size: 16px;
+    color: #FBFDFE !important;
+    padding: 10px 60px;
+}
+
+.rouvier-button-primary {
+    background: #1E3148;
+
+}
+
+.rouvier-button-secondary {
+    background: #252827;
+
+}
+
+.rouvier-button-primary:hover {
+    background: #223349; 
+}
+
+.rouvier-button-secondary:hover {
+    background: #282929;  
+
+}

@@ -1,0 +1,73 @@
+{% comment %}
+  Name: Text Section
+  Description: Can be inserted anywhere, has heading, text content and button
+{% endcomment %}
+
+<style>
+    .rouvier-text-section h2, .rouvier-text-section p{
+        color: #FBFDFE;
+    }
+</style>
+  
+<section class="rouvier-text-section relative bg-[#1E3148] py-[80px] max-sm:px-[10px] mt-[40px] overflow-hidden">
+    <!-- Background Image -->
+    <img 
+        src="{{ section.settings.background_image | image_url: width: 3000, height: 3000 }}" 
+        alt="{{ section.settings.heading }}" 
+        loading="lazy" 
+        height="3000" 
+        width="3000"
+        class="absolute inset-0 w-full h-full object-cover opacity-3"
+    >
+
+    <!-- Content Wrapper -->
+    <div class="relative  flex flex-col items-center text-center gap-[40px]">
+        <h2>{{ section.settings.heading }}</h2>
+        <div class="max-w-[800px]">{{ section.settings.content }}</div>
+        <a href="{{ section.settings.button_url }}" target="_blank" class="rouvier-button rouvier-button-secondary">
+            {{ section.settings.button_text }}
+        </a>
+    </div>
+</section>
+
+{% schema %}
+{
+  "name": "Rouvier Text Section",   
+  "tag": "section",
+  "settings": [
+    {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading",
+        "default": "Text section heading"
+    },
+    {
+        "type": "richtext",
+        "id": "content",
+        "label": "Content",
+        "default": "<p>Text section content</p>"
+    },
+    {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button Text",
+        "default": "Text section button text"
+    },
+    {
+        "type": "url",
+        "id": "button_url",
+        "label": "Text section button URL"
+    },
+    {
+        "type": "image_picker",
+        "id": "background_image",
+        "label": "Text section background Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Rouvier Text Section"
+    }
+  ]
+}
+{% endschema %}

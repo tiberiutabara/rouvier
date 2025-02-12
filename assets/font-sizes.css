@@ -1,8 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Quattrocento+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Quattrocento:wght@400;700&display=swap');
 /*
 
-MAIN
-
 .quattrocento-regular {
   font-family: "Quattrocento", serif;
   font-weight: 400;
@@ -45,6 +43,8 @@ h1{
     font-family: "Quattrocento", serif;
     font-weight: 700;
     font-style: normal;
+    line-height: 53px;
+    color: #252827;
 }
 
 h2{
@@ -52,11 +52,14 @@ h2{
     font-family: "Quattrocento", serif;
     font-weight: 400 !important;
     font-style: normal;
+    line-height: 35px;
+    color: #252827;
 }
 
 p, span, input, textarea, i, b{
     font-size: 14px;
     color: #252827;
+    line-height: 18px;
 }
 
 a.menu-drawer__menu-item, a.header__menu-item span{
