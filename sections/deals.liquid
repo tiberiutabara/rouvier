@@ -20,19 +20,25 @@
 </style>
   
 <section class="mt-[10px] max-md:mt-[40px]">
-    <h2 class="text-center mb-[10px]">{{ section.settings.heading }}</h2>
+    <h2 class="text-center mb-[10px] max-sm:mb-[20px]">{{ section.settings.heading }}</h2>
 
     <div class="flex flex-wrap justify-between gap-[2px] px-[10px] max-md:px-0">
         {% for block in section.blocks %}
             {% liquid
                 assign collection = block.settings.collection
             %}
-            <a href="{{ collection.url }}" class="w-[calc(33%-2px)] max-md:w-[calc(100%-3px)] mb-[20px] brightness-100">
-                <img src="{{ collection.featured_image | image_url }}" alt="{{ collection.title }}" 
-                     loading="lazy" 
-                     class="w-full aspect-[1/1] object-cover brightness-50 hover:brightness-100 z-1" height="1000" width="1000"> 
-                <p class="deals-title max-md:text-[15px]! z-2">{{ collection.title }}</p>
-            </a>
+
+            <a href="{{ collection.url }}" class="w-[calc(33%-2px)] max-md:w-full mb-[20px] relative group">
+              <div class="w-full aspect-[1/1] overflow-hidden brightness-50 group-hover:brightness-100 transition">
+                  <img src="{{ collection.featured_image | image_url }}" alt="{{ collection.title }}" 
+                       loading="lazy" 
+                       class="w-full h-full object-cover" height="1000" width="1000"> 
+              </div>
+              <p class="deals-title max-md:text-[15px]!">
+                  {{ collection.title }}
+              </p>
+          </a>
+          
         {% endfor %}
     </div>
     
