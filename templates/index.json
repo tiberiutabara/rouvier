@@ -62,19 +62,19 @@
         "collection_block_KNT3jK": {
           "type": "collection_block",
           "settings": {
-            "collection": ""
+            "collection": "sales"
           }
         },
         "collection_block_hV9zMQ": {
           "type": "collection_block",
           "settings": {
-            "collection": ""
+            "collection": "components"
           }
         },
         "collection_block_iJNnmr": {
           "type": "collection_block",
           "settings": {
-            "collection": ""
+            "collection": "watch-belts"
           }
         }
       },
