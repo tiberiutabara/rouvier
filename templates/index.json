@@ -14,7 +14,7 @@
       "settings": {
         "heading": "New Arrivals",
         "call_to_action": "See Variants",
-        "cta_url": "shopify://collections/all",
+        "cta_url": "shopify://collections/new-arrivals",
         "background_image": "shopify://shop_images/pexels-karolina-grabowska-6328859_3.jpg"
       }
     },
