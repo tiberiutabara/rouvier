@@ -30,8 +30,8 @@
             <a href="{{ collection.url }}" class="w-[calc(33%-2px)] max-md:w-[calc(100%-3px)] mb-[20px] brightness-100">
                 <img src="{{ collection.featured_image | image_url }}" alt="{{ collection.title }}" 
                      loading="lazy" 
-                     class="w-full aspect-[1/1] object-cover brightness-50 hover:brightness-100" height="1000" width="1000"> 
-                <p class="deals-title max-md:text-[15px]! ">{{ collection.title }}</p>
+                     class="w-full aspect-[1/1] object-cover brightness-50 hover:brightness-100 z-1" height="1000" width="1000"> 
+                <p class="deals-title max-md:text-[15px]! z-2">{{ collection.title }}</p>
             </a>
         {% endfor %}
     </div>
