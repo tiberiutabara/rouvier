@@ -3,15 +3,15 @@
   Description: This will be used on main page, but also on collections, similar structure to product listings
 {% endcomment %}
   
-<section>
-    <h2 class="text-center mb-[10px] mt-[40px]">{{ section.settings.heading }}</h2>
+<section class="mt-[40px]">
+    <h2 class="text-center mb-[10px]">{{ section.settings.heading }}</h2>
 
     <div class="flex flex-wrap justify-between gap-[7px] max-md:gap-[3px] px-[8px]">
         {% for block in section.blocks %}
             {% liquid
                 assign collection = block.settings.collection
             %}
-            <a href="{{ collection.url }}" class="w-[calc(25%-7px)] max-md:w-[calc(50%-3px)] pb-[10px] md:pb-[40px]">
+            <a href="{{ collection.url }}" class="w-[calc(25%-7px)] max-md:w-[calc(50%-3px)] mb-[10px] md:mb-[40px] hover:brightness-140 hover:underline">
                 <img src="{{ collection.featured_image | image_url }}" alt="{{ collection.title }}" 
                      loading="lazy" 
                      class="w-full aspect-[3/5] object-cover" height="1000" width="1000"> 

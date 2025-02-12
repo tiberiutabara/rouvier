@@ -1,0 +1,72 @@
+{% comment %}
+  Name: Deals cards
+  Description: This will be used on main page only as a special set of collections
+{% endcomment %}
+
+<style>
+    .deals-title{
+        text-transform: uppercase;
+        font-size: 16px;
+        font-family: "Quattrocento Sans", serif;
+        text-decoration: underline;
+        text-align: center;
+        color: #FBFDFE;
+        
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+</style>
+  
+<section class="mt-[20px]">
+    <h2 class="text-center mb-[10px]">{{ section.settings.heading }}</h2>
+
+    <div class="flex flex-wrap justify-between gap-[2px] px-[10px] max-lg:px-0">
+        {% for block in section.blocks %}
+            {% liquid
+                assign collection = block.settings.collection
+            %}
+            <a href="{{ collection.url }}" class="w-[calc(33%-2px)] max-lg:w-[calc(100%-3px)] mb-[20px] brightness-100">
+                <img src="{{ collection.featured_image | image_url }}" alt="{{ collection.title }}" 
+                     loading="lazy" 
+                     class="w-full aspect-[1/1] object-cover brightness-50 hover:brightness-100" height="1000" width="1000"> 
+                <p class="deals-title max-sm:text-[15px]! ">{{ collection.title }}</p>
+            </a>
+        {% endfor %}
+    </div>
+    
+</section>
+
+{% schema %}
+{
+  "name": "Deals",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Special deals"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection_block",
+      "name": "Collection Block",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Select Deals"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Rouvier Deals"
+    }
+  ]
+}
+{% endschema %}
