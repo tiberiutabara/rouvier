@@ -1,0 +1,135 @@
+{% comment %}
+  Name: Newsletter Section
+  Description: Custom section for rouvier theme
+{% endcomment %}
+
+<style>
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background-color: #FBFDFE;
+      width: 800px;
+      max-width: 800px;
+      padding: 20px 40px;
+      padding-bottom: 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+    }
+    .modal-form{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+    }
+    .modal-form input{
+      cursor: pointer;
+    }
+    .modal-close {
+      cursor: pointer;
+      align-self: flex-end;
+    }
+  </style>
+  
+  <section class="max-sm:px-[10px] mt-[40px] pt-[10px] flex flex-col items-center text-center gap-[40px] max-md:gap-[20px]">
+    <h2>{{ section.settings.heading }}</h2>
+    <div class="max-w-[800px]">{{ section.settings.content }}</div>
+    <a href="javascript:void(0);" onclick="openModal()" class="rouvier-button rouvier-button-primary max-md:mt-[20px]">
+      {{ section.settings.button_text }}
+    </a>
+  </section>
+  
+  <div id="newsletterModal" class="modal">
+    <div class="modal-content">
+
+      <span class="modal-close" onclick="closeModal()">&#9587;</span>
+
+      <h2>Newsletter</h2>
+
+      {% form 'customer', class: 'modal-form' %}
+        <input type="hidden" name="contact[tags]" value="newsletter">
+
+          <input
+            type="email"
+            name="contact[email]"
+            class="border-1 py-[12px] px-[20px] w-[300px]"
+            placeholder="E-mail address"
+            value="{{ form.email }}"
+            autocomplete="email"
+            autocorrect="off"
+            autocapitalize="off"
+            required
+          />
+
+          <input
+            type="submit"
+            value="Subscribe to newsletter"
+            class="block rouvier-button rouvier-button-primary !py-6"
+          />
+
+        {% if form.posted_successfully? %}
+          <p class="text-green-500">Thank you for subscribing!</p>
+        {% endif %}
+        {% if form.errors %}
+          <p class="text-red-500">{{ form.errors.messages.email }}</p>
+        {% endif %}
+      {% endform %}
+      
+
+    </div>
+  </div>
+  
+  <script>
+    function openModal() {
+      document.getElementById('newsletterModal').style.display = 'flex';
+    }
+    function closeModal() {
+      document.getElementById('newsletterModal').style.display = 'none';
+    }
+  </script>
+  
+  {% schema %}
+  {
+    "name": "Rouvier Newsletter",   
+    "tag": "section",
+    "settings": [
+      {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Newsletter heading"
+      },
+      {
+          "type": "richtext",
+          "id": "content",
+          "label": "Content",
+          "default": "<p>Newsletter content</p>"
+      },
+      {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text",
+          "default": "Newsletter button text"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Rouvier Newsletter"
+      }
+    ]
+  }
+  {% endschema %}
+  
