@@ -96,12 +96,21 @@
         "button_url": "https://google.com",
         "background_image": "shopify://shop_images/pexels-anthony-derosa-39577-236900_1_1.png"
       }
+    },
+    "custom_newsletter_PBY6TU": {
+      "type": "custom-newsletter",
+      "settings": {
+        "heading": "Subscribe to our newsletter",
+        "content": "<p>Subscribe to our newsletter for the latest updates, exclusive deals, and early access to new arrivals. Stay informed with special promotions, trends, and more—delivered straight to your inbox.</p>",
+        "button_text": "Join today"
+      }
     }
   },
   "order": [
     "hero_eLccGF",
     "custom_collections_xHTyPg",
     "deals_EY6Lfc",
-    "custom_text_section_6U4rpX"
+    "custom_text_section_6U4rpX",
+    "custom_newsletter_PBY6TU"
   ]
 }
