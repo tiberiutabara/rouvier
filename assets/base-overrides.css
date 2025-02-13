@@ -1,7 +1,12 @@
 /* Settings */
-html, body {
-    overflow-x: hidden; /* Prevents horizontal scrolling */
-    width: 100%; /* Ensures full width usage */
+html {
+    overflow-x: visible;
+}
+
+body {
+    overflow-x: hidden; 
+    position: relative;
+    width: 100%;
 }
 
 
