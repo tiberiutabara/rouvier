@@ -37,29 +37,29 @@ footer .footer__content-top{
 
     /* Header */
     header.header {
-        padding: 0px;
+        padding: 4px 0px;
     }
     .header:not(.drawer-menu).page-width {
         padding-left: 10px;
         padding-right: 10px;
     }
     img.header__heading-logo{
-        height: 16px;
-        width: 85px;
+        height: 21px;
+        width: 110px;
     }
     header svg.icon.icon-cart-empty, header svg.icon.icon-cart{
-        height: 34px;
+        height: 43px;
         margin-right: 0;
     }
     header svg.icon.icon-hamburger{
-        height: 14px;
+        height: 16px;
     }
     header svg.icon.icon-search{
-        height: 17px;
+        height: 20px;
         margin-right: -25px;
     }
     header svg.icon.icon-close{
-        height: 14px;
+        height: 15px;
     }
     header .header__icons{
         padding: 0;
