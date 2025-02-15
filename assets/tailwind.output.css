@@ -737,8 +737,14 @@
   .\!w-0 {
     width: calc(var(--spacing) * 0) !important;
   }
+  .\!w-\[500px\] {
+    width: 500px !important;
+  }
   .\!w-full {
     width: 100% !important;
+  }
+  .w-1\/4 {
+    width: calc(1/4 * 100%);
   }
   .w-5xl {
     width: var(--container-5xl);
@@ -760,6 +766,15 @@
   }
   .w-\[calc\(33\%-2px\)\] {
     width: calc(33% - 2px);
+  }
+  .w-\[calc\(85\%-7px\)\] {
+    width: calc(85% - 7px);
+  }
+  .w-\[calc\(100\%\+7px\)\] {
+    width: calc(100% + 7px);
+  }
+  .w-\[calc\(100\%-7px\)\] {
+    width: calc(100% - 7px);
   }
   .w-full {
     width: 100%;
@@ -823,8 +838,17 @@
   .justify-center {
     justify-content: center;
   }
+  .\!gap-0 {
+    gap: calc(var(--spacing) * 0) !important;
+  }
+  .\!gap-\[0px\] {
+    gap: 0px !important;
+  }
   .\!gap-\[10px\] {
     gap: 10px !important;
+  }
+  .\!gap-\[50px\] {
+    gap: 50px !important;
   }
   .gap-0 {
     gap: calc(var(--spacing) * 0);
@@ -847,8 +871,17 @@
   .gap-\[7px\] {
     gap: 7px;
   }
+  .gap-\[10px\] {
+    gap: 10px;
+  }
   .gap-\[40px\] {
     gap: 40px;
+  }
+  .\!gap-x-\[0px\] {
+    column-gap: 0px !important;
+  }
+  .\!gap-y-\[0px\] {
+    row-gap: 0px !important;
   }
   .\!self-center {
     align-self: center !important;
@@ -916,6 +949,9 @@
   .bg-red-100 {
     background-color: var(--color-red-100);
   }
+  .bg-red-500 {
+    background-color: var(--color-red-500);
+  }
   .\!object-cover {
     object-fit: cover !important;
   }
@@ -924,6 +960,12 @@
   }
   .\!p-0 {
     padding: calc(var(--spacing) * 0) !important;
+  }
+  .\!p-5 {
+    padding: calc(var(--spacing) * 5) !important;
+  }
+  .\!p-24 {
+    padding: calc(var(--spacing) * 24) !important;
   }
   .\!p-\[40px\] {
     padding: 40px !important;
@@ -976,8 +1018,17 @@
   .py-\[12px\] {
     padding-block: 12px;
   }
+  .py-\[20px\] {
+    padding-block: 20px;
+  }
   .py-\[80px\] {
     padding-block: 80px;
+  }
+  .\!pt-\[5px\] {
+    padding-top: 5px !important;
+  }
+  .\!pt-\[10px\] {
+    padding-top: 10px !important;
   }
   .pt-2 {
     padding-top: calc(var(--spacing) * 2);
@@ -987,6 +1038,9 @@
   }
   .pt-12 {
     padding-top: calc(var(--spacing) * 12);
+  }
+  .pt-\[5px\] {
+    padding-top: 5px;
   }
   .pt-\[10px\] {
     padding-top: 10px;
@@ -1012,12 +1066,26 @@
     font-size: var(--text-xl);
     line-height: var(--tw-leading, var(--text-xl--line-height));
   }
+  .\!text-\[15px\] {
+    font-size: 15px !important;
+  }
+  .text-\[15px\] {
+    font-size: 15px;
+  }
   .text-\[15px\]\! {
     font-size: 15px !important;
+  }
+  .\!font-\[15px\] {
+    --tw-font-weight: 15px !important;
+    font-weight: 15px !important;
   }
   .\!font-bold {
     --tw-font-weight: var(--font-weight-bold) !important;
     font-weight: var(--font-weight-bold) !important;
+  }
+  .font-\[15px\] {
+    --tw-font-weight: 15px;
+    font-weight: 15px;
   }
   .font-bold {
     --tw-font-weight: var(--font-weight-bold);
@@ -1092,6 +1160,9 @@
   .opacity-70 {
     opacity: 70%;
   }
+  .opacity-140 {
+    opacity: 140%;
+  }
   .ring {
     --tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color, currentColor);
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
@@ -1107,6 +1178,10 @@
   .blur {
     --tw-blur: blur(8px);
     filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
+  }
+  .\!brightness-50 {
+    --tw-brightness: brightness(50%) !important;
+    filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,) !important;
   }
   .brightness-50 {
     --tw-brightness: brightness(50%);
@@ -1130,6 +1205,10 @@
   }
   .brightness-100 {
     --tw-brightness: brightness(100%);
+    filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
+  }
+  .brightness-140 {
+    --tw-brightness: brightness(140%);
     filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
   }
   .brightness-200 {
@@ -1168,6 +1247,14 @@
     --tw-outline-style: none;
     outline-style: none;
   }
+  .group-hover\:brightness-50 {
+    &:is(:where(.group):hover *) {
+      @media (hover: hover) {
+        --tw-brightness: brightness(50%);
+        filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
+      }
+    }
+  }
   .group-hover\:brightness-100 {
     &:is(:where(.group):hover *) {
       @media (hover: hover) {
@@ -1183,12 +1270,54 @@
       }
     }
   }
+  .hover\:\!brightness-50 {
+    &:hover {
+      @media (hover: hover) {
+        --tw-brightness: brightness(50%) !important;
+        filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,) !important;
+      }
+    }
+  }
+  .hover\:\!brightness-140 {
+    &:hover {
+      @media (hover: hover) {
+        --tw-brightness: brightness(140%) !important;
+        filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,) !important;
+      }
+    }
+  }
+  .hover\:brightness-50 {
+    &:hover {
+      @media (hover: hover) {
+        --tw-brightness: brightness(50%);
+        filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
+      }
+    }
+  }
   .hover\:brightness-140 {
     &:hover {
       @media (hover: hover) {
         --tw-brightness: brightness(140%);
         filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
       }
+    }
+  }
+  .focus\:brightness-50 {
+    &:focus {
+      --tw-brightness: brightness(50%);
+      filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
+    }
+  }
+  .focus\:brightness-125 {
+    &:focus {
+      --tw-brightness: brightness(125%);
+      filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
+    }
+  }
+  .focus\:brightness-140 {
+    &:focus {
+      --tw-brightness: brightness(140%);
+      filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
     }
   }
   .max-md\:mt-\[20px\] {
@@ -1236,6 +1365,18 @@
       font-size: 15px !important;
     }
   }
+  .max-md\:font-\[14px\] {
+    @media (width < 48rem) {
+      --tw-font-weight: 14px;
+      font-weight: 14px;
+    }
+  }
+  .max-md\:font-\[15px\] {
+    @media (width < 48rem) {
+      --tw-font-weight: 15px;
+      font-weight: 15px;
+    }
+  }
   .max-md\:brightness-70 {
     @media (width < 48rem) {
       --tw-brightness: brightness(70%);
@@ -1260,6 +1401,27 @@
   .md\:gap-\[10px\] {
     @media (width >= 48rem) {
       gap: 10px;
+    }
+  }
+  .md\:\!text-\[15px\] {
+    @media (width >= 48rem) {
+      font-size: 15px !important;
+    }
+  }
+  .md\:\!text-\[18px\] {
+    @media (width >= 48rem) {
+      font-size: 18px !important;
+    }
+  }
+  .md\:text-\[15px\] {
+    @media (width >= 48rem) {
+      font-size: 15px;
+    }
+  }
+  .md\:font-\[15px\] {
+    @media (width >= 48rem) {
+      --tw-font-weight: 15px;
+      font-weight: 15px;
     }
   }
 }

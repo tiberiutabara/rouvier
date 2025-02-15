@@ -59,7 +59,7 @@
       >
         {%- if card_product.featured_media -%}
           <div class="card__media{% if image_shape and image_shape != 'default' %} shape--{{ image_shape }} color-{{ settings.card_color_scheme }} gradient{% endif %}">
-            <div class="media media--transparent media--hover-effect w-full h-full object-cover">
+            <div class="media media--transparent w-full h-full object-cover media--hover-effect">
               {% comment %}theme-check-disable ImgLazyLoading{% endcomment %}
 
               <!-- Card edit -->
@@ -80,14 +80,9 @@
                 {% unless lazy_load == false %}
                   loading="lazy"
                 {% endunless %}
-                width="1000"
-                height="1000"
+                width="{{ card_product.featured_media.width }}"
+                height="{{ card_product.featured_media.height }}"
               >
-                {% comment %}
-                 EX VALUES:
-                    width="{{ card_product.featured_media.width }}"
-                    height="{{ card_product.featured_media.height }}"
-                {% endcomment %}
               {% comment %}theme-check-enable ImgLazyLoading{% endcomment %}
 
               {%- if card_product.media[1] != null and show_secondary_image -%}
@@ -152,8 +147,10 @@
       </div>
       <div class="card__content">
         <div class="card__information">
-          <h3
-            class="card__heading{% if card_product.featured_media or settings.card_style == 'standard' %} h5{% endif %}"
+          <p
+            class="card__heading{% if card_product.featured_media or settings.card_style == 'standard' %}{% endif %}
+            md:!text-[15px]
+            "
             {% if card_product.featured_media or settings.card_style == 'card' %}
               id="title-{{ section_id }}-{{ card_product.id }}"
             {% endif %}
@@ -166,8 +163,8 @@
             >
               {{ card_product.title | escape }}
             </a>
-          </h3>
-          <div class="card-information">
+          </p>
+          <div class="card-information hidden">
             {%- if show_vendor -%}
               <span class="visually-hidden">{{ 'accessibility.vendor' | t }}</span>
               <div class="caption-with-letter-spacing light">{{ card_product.vendor }}</div>

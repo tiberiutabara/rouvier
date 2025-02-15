@@ -31,7 +31,7 @@
   endif
 -%}
 
-<div class="card-wrapper animate-arrow {% if wrapper_class and wrapper_class != 'none' %}{{ wrapper_class }}{% else %}collection-card-wrapper{% endif %}">
+<div class="card-wrapper animate-arrow {% if wrapper_class and wrapper_class != 'none' %}{{ wrapper_class }}{% else %}collection-card-wrapper{% endif %} underline-links-hover !mb-[20px]">
   <div
     class="
       card
@@ -40,16 +40,18 @@
       {% if card_style == 'card' %} color-{{ card_color_scheme }} gradient{% endif %}
       {% if extend_height %} card--extend-height{% endif %}
       {% if card_collection.featured_image == nil and card_style == 'card' %} ratio{% endif %}
+       hover:brightness-140 transition
     "
     style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;"
   >
     <div
-      class="card__inner {% if card_style == 'standard' %}color-{{ card_color_scheme }} gradient{% endif %}{% if card_collection.featured_image or card_style == 'standard' %} ratio{% endif %}"
+      class="card__inner {% if card_style == 'standard' %}color-{{ card_color_scheme }} gradient{% endif %}{% if card_collection.featured_image or card_style == 'standard' %} ratio{% endif %} !aspect-[3/5]"
       style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;"
     >
       {%- if card_collection.featured_image -%}
         <div class="card__media">
-          <div class="media media--transparent media--hover-effect">
+          <div class="media media--transparent w-full h-full object-cover">
+            <!-- Card edit -->
             <img
               srcset="
                 {%- if card_collection.featured_image.width >= 165 -%}{{ card_collection.featured_image | image_url: width: 165 }} 165w,{%- endif -%}
@@ -82,7 +84,7 @@
         </div>
       {%- else -%}
         <div class="card__content">
-          <div class="card__information">
+          <div class="card__information pt-[10px]">
             <h3 class="card__heading">
               <a
                 {% if card_collection == blank %}
@@ -98,7 +100,7 @@
                   {{ 'onboarding.collection_title' | t }}
                 {%- endif -%}
                 {%- if card_collection.description == blank -%}
-                  <span class="icon-wrap">
+                  <span class="icon-wrap hidden">
                     {{- 'icon-arrow.svg' | inline_asset_content -}}
                   </span>
                 {%- endif %}
@@ -107,7 +109,7 @@
             {%- if card_collection.description != blank -%}
               <p class="card__caption">
                 {{- card_collection.description | strip_html | truncatewords: 12 -}}
-                <span class="icon-wrap">
+                <span class="icon-wrap hidden">
                   {{- 'icon-arrow.svg' | inline_asset_content -}}
                 </span>
               </p>
@@ -118,8 +120,8 @@
     </div>
     {%- if card_collection != blank and card_style == 'card' or card_collection.featured_image -%}
       <div class="card__content">
-        <div class="card__information">
-          <h3 class="card__heading">
+        <div class="card__information !pt-[10px] !pb-0">
+          <p class="card__heading font-[15px] max-md:font-[14px]">
             <a
               {% if card_collection == blank %}
                 role="link" aria-disabled="true"
@@ -134,16 +136,16 @@
                 {{ 'onboarding.collection_title' | t }}
               {%- endif -%}
               {%- if card_collection.featured_image or card_collection.description == blank -%}
-                <span class="icon-wrap">
+                <span class="icon-wrap hidden">
                   {{- 'icon-arrow.svg' | inline_asset_content -}}
                 </span>
               {%- endif %}
             </a>
-          </h3>
+          </p>
           {%- if card_collection.featured_image == null and card_collection.description != blank -%}
             <p class="card__caption">
               {{- card_collection.description | strip_html | truncatewords: 12 -}}
-              <span class="icon-wrap">
+              <span class="icon-wrap hidden">
                 {{- 'icon-arrow.svg' | inline_asset_content -}}
               </span>
             </p>
@@ -154,14 +156,14 @@
     {%- if card_collection == blank -%}
       <div class="card__content">
         <div class="card__information">
-          <h3 class="card__heading card__heading--placeholder">
+          <p class="card__heading card__heading--placeholder">
             <a role="link" aria-disabled="true" class="full-unstyled-link">
               {{ 'onboarding.collection_title' | t }}
-              <span class="icon-wrap">
+              <span class="icon-wrap hidden">
                 {{- 'icon-arrow.svg' | inline_asset_content -}}
               </span>
             </a>
-          </h3>
+          </p>
         </div>
       </div>
     {%- endif -%}
