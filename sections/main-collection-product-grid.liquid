@@ -36,7 +36,9 @@
   }
 {%- endstyle -%}
 
-<div class="section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}">
+<div class="flex flex-col items-center"> <!-- CUSTOM DIV -->
+<div class=" gradient color-{{ section.settings.color_scheme }} !px-[10px] w-full !mb-[40px]">
+  <div class="border-t-1 border-[#252827]/10 h-0">&nbsp;</div>
   {%- paginate collection.products by section.settings.products_per_page -%}
     {% comment %} Sort is the first tabbable element when filter type is vertical {% endcomment %}
     {%- if section.settings.enable_sorting and section.settings.filter_type == 'vertical' -%}
@@ -44,9 +46,9 @@
         <form class="facets-vertical-form" id="FacetSortForm">
           <div class="facet-filters sorting caption">
             <div class="facet-filters__field">
-              <h2 class="facet-filters__label caption-large text-body">
+              <p class="facet-filters__label caption-large text-body">
                 <label for="SortBy">{{ 'products.facets.sort_by_label' | t }}</label>
-              </h2>
+              </p>
               <div class="select">
                 {%- assign sort_by = collection.sort_by | default: collection.default_sort_by -%}
                 <select
@@ -74,7 +76,7 @@
           </div>
 
           <div class="product-count-vertical light" role="status">
-            <h2 class="product-count__text text-body">
+            <p class="product-count__text text-body">
               <span id="ProductCountDesktop">
                 {%- if collection.results_count -%}
                   {{
@@ -90,7 +92,7 @@
                   }}
                 {%- endif -%}
               </span>
-            </h2>
+            </p>
             {%- render 'loading-spinner' -%}
           </div>
         </form>
@@ -103,7 +105,7 @@
       {%- if section.settings.enable_filtering or section.settings.enable_sorting -%}
         <aside
           aria-labelledby="verticalTitle"
-          class="facets-wrapper{% unless section.settings.enable_filtering %} facets-wrapper--no-filters{% endunless %}{% if section.settings.filter_type != 'vertical' %} page-width{% endif %}"
+          class="facets-wrapper{% unless section.settings.enable_filtering %} facets-wrapper--no-filters{% endunless %}{% if section.settings.filter_type != 'vertical' %}{% endif %} !my-[20px]"
           id="main-collection-filters"
           data-id="{{ section.id }}"
         >
@@ -125,22 +127,22 @@
         {% endif %}
       >
         {%- if collection.products.size == 0 -%}
-          <div class="collection collection--empty page-width" id="product-grid" data-id="{{ section.id }}">
+          <div class="collection collection--empty" id="product-grid" data-id="{{ section.id }}">
             <div class="loading-overlay gradient"></div>
             <div class="title-wrapper center">
-              <h2 class="title title--primary">
+              <p class="title title--primary">
                 {{ 'sections.collection_template.empty' | t -}}
                 <br>
                 {{
                   'sections.collection_template.use_fewer_filters_html'
                   | t: link: collection.url, class: 'underlined-link link'
                 }}
-              </h2>
+              </p>
             </div>
           </div>
-        {%- else -%}
-          <div
-            class="collection{% if section.settings.filter_type != 'vertical' %} page-width{% endif %}"
+        {%- else -%} <!-- Products render -->
+          <div 
+            class="collection{% if section.settings.filter_type != 'vertical' %} {% endif %}"
           >
             <div class="loading-overlay gradient"></div>
             <ul
@@ -150,6 +152,7 @@
                 grid product-grid grid--{{ section.settings.columns_mobile }}-col-tablet-down
                 grid--{{ section.settings.columns_desktop }}-col-desktop
                 {% if section.settings.quick_add == 'bulk' %} collection-quick-add-bulk{% endif %}
+                !gap-[10px] 
               "
             >
               {% assign skip_card_product_styles = false %}
@@ -193,6 +196,7 @@
   {% if section.settings.image_shape == 'arch' %}
     {{ 'mask-arch.svg' | inline_asset_content }}
   {%- endif -%}
+</div>
 </div>
 
 {% schema %}

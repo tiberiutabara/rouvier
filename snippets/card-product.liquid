@@ -54,14 +54,16 @@
       style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;"
     >
       <div
-        class="card__inner {% if settings.card_style == 'standard' %}color-{{ settings.card_color_scheme }} gradient{% endif %}{% if card_product.featured_media or settings.card_style == 'standard' %} ratio{% endif %}"
+        class="card__inner {% if settings.card_style == 'standard' %}color-{{ settings.card_color_scheme }} gradient{% endif %}{% if card_product.featured_media or settings.card_style == 'standard' %} ratio{% endif %} !aspect-[3/5]"
         style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;"
       >
         {%- if card_product.featured_media -%}
           <div class="card__media{% if image_shape and image_shape != 'default' %} shape--{{ image_shape }} color-{{ settings.card_color_scheme }} gradient{% endif %}">
-            <div class="media media--transparent media--hover-effect">
+            <div class="media media--transparent media--hover-effect w-full h-full object-cover">
               {% comment %}theme-check-disable ImgLazyLoading{% endcomment %}
-              <img
+
+              <!-- Card edit -->
+              <img 
                 srcset="
                   {%- if card_product.featured_media.width >= 165 -%}{{ card_product.featured_media | image_url: width: 165 }} 165w,{%- endif -%}
                   {%- if card_product.featured_media.width >= 360 -%}{{ card_product.featured_media | image_url: width: 360 }} 360w,{%- endif -%}
@@ -78,9 +80,14 @@
                 {% unless lazy_load == false %}
                   loading="lazy"
                 {% endunless %}
-                width="{{ card_product.featured_media.width }}"
-                height="{{ card_product.featured_media.height }}"
+                width="1000"
+                height="1000"
               >
+                {% comment %}
+                 EX VALUES:
+                    width="{{ card_product.featured_media.width }}"
+                    height="{{ card_product.featured_media.height }}"
+                {% endcomment %}
               {% comment %}theme-check-enable ImgLazyLoading{% endcomment %}
 
               {%- if card_product.media[1] != null and show_secondary_image -%}
