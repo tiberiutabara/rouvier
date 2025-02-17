@@ -1,47 +1,55 @@
-{% comment %} Description: Basic product details section with title, description, price, and add-to-cart button. {% endcomment %}
+{% comment %} 
+Title: Rouvier Custom Product
+{% endcomment %}
 
-{% style %}
-  .product-details-section {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    text-align: {{ section.settings.text_alignment }};
-  }
+<style>
 
-  .product-details-section .product-title {
-    font-size: {{ section.settings.title_size }}px;
-    color: {{ section.settings.title_color }};
-    margin-bottom: 20px;
-  }
-
-  .product-details-section .product-description {
-    font-size: {{ section.settings.description_size }}px;
-    color: {{ section.settings.description_color }};
-    margin-bottom: 20px;
-  }
-
-  .product-details-section .product-price {
-    font-size: {{ section.settings.price_size }}px;
-    color: {{ section.settings.price_color }};
-    margin-bottom: 20px;
-  }
-
-  .product-details-section .add-to-cart-button {
-    background-color: {{ section.settings.button_background }};
-    color: {{ section.settings.button_text_color }};
-    padding: 10px 20px;
-    font-size: {{ section.settings.button_text_size }}px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-
-  .product-details-section .add-to-cart-button:hover {
-    background-color: {{ section.settings.button_hover_background }};
-  }
-{% endstyle %}
+</style>
 
 <div class="product-details-section">
+
+    <div class="product-gallery flex">
+        <!-- Container for the smaller images on the left -->
+        <div class="flex flex-col" id="thumbnail-container">
+          {% for media in product.media %}
+            {%- if media.media_type == 'image' -%}
+              {% unless forloop.first %}
+                <img 
+                  src="{{ media | image_url: width: 1000 }}"
+                  alt="{{ product.title }} image"
+                  class="gallery-image w-[150px] h-[150px] cursor-pointer"
+                  loading="lazy"
+                  data-src="{{ media | image_url: width: 1000 }}"
+                  data-index="{{ forloop.index }}"
+                  onclick="swapImage(this)"
+                  width="1000"
+                  height="1000"
+                >
+              {% endunless %}
+            {%- endif -%}
+          {% endfor %}
+        </div>
+      
+        <!-- Container for the larger image on the right -->
+        {%- assign first_media = product.media.first -%}
+        {%- if first_media.media_type == 'image' -%}
+          <img 
+            src="{{ first_media | image_url: width: 1000 }}"
+            alt="{{ product.title }} image"
+            class="gallery-image w-[600px] h-[600px] cursor-pointer"
+            loading="lazy"
+            id="large-image"
+            data-src="{{ first_media | image_url: width: 1000 }}"
+            width="1000"
+            height="1000"
+          >
+        {%- endif -%}
+    </div>
+      
+      
+      <!-- custom breadcrumbs -->
+      {% render 'breadcrumbs' %}
+
   <h1 class="product-title">{{ product.title }}</h1>
   
   <div class="product-description">
@@ -61,113 +69,30 @@
   </form>
 </div>
 
+<script>
+    function swapImage(clickedImage) {
+      const largeImage = document.getElementById('large-image');
+  
+      // Store the large image data
+      const tempSrc = largeImage.src;
+      const tempDataSrc = largeImage.dataset.src;
+  
+      // Swap the large image with the clicked thumbnail
+      largeImage.src = clickedImage.dataset.src;
+      largeImage.dataset.src = clickedImage.src;
+  
+      // Replace only the clicked thumbnail's image, keeping others unchanged
+      clickedImage.src = tempDataSrc;
+      clickedImage.dataset.src = tempSrc;
+    }
+  </script>
+
 {% schema %}
 {
-  "name": "Custom Product Details",
-  "settings": [
-    {
-      "type": "select",
-      "id": "text_alignment",
-      "label": "Text Alignment",
-      "options": [
-        { "value": "left", "label": "Left" },
-        { "value": "center", "label": "Center" },
-        { "value": "right", "label": "Right" }
-      ],
-      "default": "center"
-    },
-    {
-      "type": "header",
-      "content": "Title Settings"
-    },
-    {
-      "type": "range",
-      "id": "title_size",
-      "label": "Title Font Size",
-      "min": 16,
-      "max": 48,
-      "step": 1,
-      "default": 32
-    },
-    {
-      "type": "color",
-      "id": "title_color",
-      "label": "Title Color",
-      "default": "#000000"
-    },
-    {
-      "type": "header",
-      "content": "Description Settings"
-    },
-    {
-      "type": "range",
-      "id": "description_size",
-      "label": "Description Font Size",
-      "min": 12,
-      "max": 24,
-      "step": 1,
-      "default": 16
-    },
-    {
-      "type": "color",
-      "id": "description_color",
-      "label": "Description Color",
-      "default": "#333333"
-    },
-    {
-      "type": "header",
-      "content": "Price Settings"
-    },
-    {
-      "type": "range",
-      "id": "price_size",
-      "label": "Price Font Size",
-      "min": 14,
-      "max": 32,
-      "step": 1,
-      "default": 24
-    },
-    {
-      "type": "color",
-      "id": "price_color",
-      "label": "Price Color",
-      "default": "#000000"
-    },
-    {
-      "type": "header",
-      "content": "Button Settings"
-    },
-    {
-      "type": "range",
-      "id": "button_text_size",
-      "label": "Button Text Size",
-      "min": 12,
-      "max": 24,
-      "step": 1,
-      "default": 16
-    },
-    {
-      "type": "color",
-      "id": "button_background",
-      "label": "Button Background",
-      "default": "#000000"
-    },
-    {
-      "type": "color",
-      "id": "button_text_color",
-      "label": "Button Text Color",
-      "default": "#FFFFFF"
-    },
-    {
-      "type": "color",
-      "id": "button_hover_background",
-      "label": "Button Hover Background",
-      "default": "#333333"
-    }
-  ],
+  "name": "Rouvier Custom Product",
   "presets": [
     {
-      "name": "Custom Product Details"
+      "name": "Rouvier Custom Product"
     }
   ]
 }
