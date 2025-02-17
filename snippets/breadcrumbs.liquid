@@ -1,0 +1,50 @@
+<style>
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+    
+    .breadcrumb {
+        opacity: 0; 
+        animation: fadeIn 0.3s ease-in 0.2s forwards;
+    }
+    .breadcrumb.visible {
+        opacity: 1;
+    }
+    .breadcrumb a{
+        font-size: 14px;
+        color: #252827;
+    }
+    .breadcrumb a:hover{
+        text-decoration: underline;
+    }
+  </style>
+  
+  <nav class="breadcrumb" role="navigation" aria-label="breadcrumbs">
+      <a href="/" title="Home">Home</a>
+      <span aria-hidden="true">›</span>
+      <a href="" id="breadcrumb-collection"></a>
+      <span aria-hidden="true">›</span>
+      <span>{{ product.title }}</span>
+  </nav>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const breadcrumbContainer = document.querySelector(".breadcrumb");
+        const collectionElement = document.getElementById("breadcrumb-collection");
+  
+        if (!breadcrumbContainer || !collectionElement) return;
+  
+        let breadcrumbData = JSON.parse(localStorage.getItem("breadcrumbData")) || { home: "/", collection: "", product: "" };
+  
+        if (breadcrumbData.collection) {
+            collectionElement.setAttribute("href", breadcrumbData.collection);
+            collectionElement.textContent = breadcrumbData.collectionTitle.replace(/ – .*/, "");
+        }
+    });
+  </script>
+  
