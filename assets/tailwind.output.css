@@ -743,6 +743,9 @@
   .\!w-full {
     width: 100% !important;
   }
+  .w-1 {
+    width: calc(var(--spacing) * 1);
+  }
   .w-1\/4 {
     width: calc(1/4 * 100%);
   }
@@ -1181,6 +1184,10 @@
   }
   .\!brightness-50 {
     --tw-brightness: brightness(50%) !important;
+    filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,) !important;
+  }
+  .\!brightness-140 {
+    --tw-brightness: brightness(140%) !important;
     filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,) !important;
   }
   .brightness-50 {
