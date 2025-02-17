@@ -14,13 +14,22 @@
       "settings": {
         "title": "Collections",
         "sort": "alphabetical",
-        "image_ratio": "square",
-        "columns_desktop": 3,
+        "image_ratio": "portrait",
+        "columns_desktop": 4,
         "columns_mobile": "2"
+      }
+    },
+    "custom_newsletter_NWMfkn": {
+      "type": "custom-newsletter",
+      "settings": {
+        "heading": "Subscribe to our newsletter",
+        "content": "<p>Subscribe to our newsletter for the latest updates, exclusive deals, and early access to new arrivals. Stay informed with special promotions, trends, and more—delivered straight to your inbox.</p>",
+        "button_text": "Join today"
       }
     }
   },
   "order": [
-    "main"
+    "main",
+    "custom_newsletter_NWMfkn"
   ]
 }
