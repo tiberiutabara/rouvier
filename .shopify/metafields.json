@@ -11,46 +11,6 @@
   "page": [],
   "product": [
     {
-      "key": "sizing_notes",
-      "namespace": "custom",
-      "name": "Sizing Notes",
-      "description": "Notes on product sizing",
-      "type": {
-        "name": "single_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "construction",
-      "namespace": "custom",
-      "name": "Construction",
-      "description": "Describes how the product is constructed",
-      "type": {
-        "name": "single_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "care_instructions",
-      "namespace": "custom",
-      "name": "Care Instructions",
-      "description": "How to take care of the product",
-      "type": {
-        "name": "rich_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "materials",
-      "namespace": "custom",
-      "name": "Materials",
-      "description": "Describes the materials used to create the product",
-      "type": {
-        "name": "rich_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
       "key": "color-pattern",
       "namespace": "shopify",
       "name": "Color",
@@ -208,6 +168,36 @@
       "type": {
         "name": "list.metaobject_reference",
         "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "product_materials",
+      "namespace": "custom",
+      "name": "Product materials",
+      "description": "Describes the materials used for product",
+      "type": {
+        "name": "multi_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "care_guide",
+      "namespace": "custom",
+      "name": "Care guide",
+      "description": "Describes how to take care of the product",
+      "type": {
+        "name": "multi_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "how_to_style",
+      "namespace": "custom",
+      "name": "How to style",
+      "description": "A brief about styling recommendations ",
+      "type": {
+        "name": "multi_line_text_field",
+        "category": "TEXT"
       }
     }
   ],
