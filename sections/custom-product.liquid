@@ -1,91 +1,139 @@
-{% comment %} 
-Title: Rouvier Custom Product
+{% comment %}
+  Title: Rouvier Custom Product
 {% endcomment %}
 
-<style>
+<style></style>
 
-</style>
-
-<div class="product-details-section">
-
-    <div class="product-gallery flex">
-        <!-- Container for the smaller images on the left -->
-        <div class="flex flex-col" id="thumbnail-container">
-          {% for media in product.media %}
-            {%- if media.media_type == 'image' -%}
-              {% unless forloop.first %}
-                <img 
-                  src="{{ media | image_url: width: 1000 }}"
-                  alt="{{ product.title }} image"
-                  class="gallery-image w-[150px] h-[150px] cursor-pointer"
-                  loading="lazy"
-                  data-src="{{ media | image_url: width: 1000 }}"
-                  data-index="{{ forloop.index }}"
-                  onclick="swapImage(this)"
-                  width="1000"
-                  height="1000"
-                >
-              {% endunless %}
-            {%- endif -%}
-          {% endfor %}
-        </div>
-      
-        <!-- Container for the larger image on the right -->
-        {%- assign first_media = product.media.first -%}
-        {%- if first_media.media_type == 'image' -%}
-          <img 
-            src="{{ first_media | image_url: width: 1000 }}"
-            alt="{{ product.title }} image"
-            class="gallery-image w-[600px] h-[600px] cursor-pointer"
-            loading="lazy"
-            id="large-image"
-            data-src="{{ first_media | image_url: width: 1000 }}"
-            width="1000"
-            height="1000"
-          >
+<div class="flex justify-center w-full gap-[80px] max-lg:gap-[40px] max-md:gap-0">
+  <!-- Gallery -->
+  <div class="flex w-[50%]">
+    <div class="flex flex-col">
+      {% for media in product.media %}
+        {%- if media.media_type == 'image' -%}
+          {% unless forloop.first %}
+            <img
+              src="{{ media | image_url: width: 1000 }}"
+              alt="{{ product.title }}"
+              class="w-[150px] h-[150px] cursor-pointer !aspect-[3/5]"
+              loading="eager"
+              data-src="{{ media | image_url: width: 1000 }}"
+              data-index="{{ forloop.index }}"
+              onclick="swapImage(this)"
+              width="1000"
+              height="1000"
+            >
+          {% endunless %}
         {%- endif -%}
+      {% endfor %}
     </div>
-      
-      
-      <!-- custom breadcrumbs -->
-      {% render 'breadcrumbs' %}
 
-  <h1 class="product-title">{{ product.title }}</h1>
-  
-  <div class="product-description">
-    {{ product.description }}
+    {%- assign first_media = product.media.first -%}
+    {%- if first_media.media_type == 'image' -%}
+      <img
+        src="{{ first_media | image_url: width: 1000 }}"
+        alt="{{ product.title }}"
+        class="w-[600px] h-[600px] cursor-pointer !aspect-[3/5]"
+        loading="eager"
+        id="large-image"
+        data-src="{{ first_media | image_url: width: 1000 }}"
+        width="1000"
+        height="1000"
+      >
+    {%- endif -%}
   </div>
-  
-  <div class="product-price">
-    <span class="price">{{ product.price | money }}</span>
-    {% if product.compare_at_price > product.price %}
-      <span class="compare-at-price">{{ product.compare_at_price | money }}</span>
-    {% endif %}
+
+  <!-- Product informations -->
+  <div class="w-[50%] max-w-[616px]">
+    <!-- custom breadcrumbs -->
+    {% render 'breadcrumbs' %}
+
+    <h1>{{ product.title }}</h1>
+
+    <p class="">
+        <span class="price">{{ product.price | money }}</span>
+        {% if product.compare_at_price > product.price %}
+            <span class="compare-at-price">{{ product.compare_at_price | money }}</span>
+        {% endif %}
+    </p>
+
+    <div class="">
+      {{ product.description }}
+    </div>
+
+
+    <!-- Variants -->
+
+    {% form 'product', product %}
+        <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+
+        <div>
+            {% for option in product.options_with_values %}
+                <fieldset>
+                    <legend>{{ option.name }}</legend>
+                    {% for value in option.values %}
+                        <div>
+                            <input 
+                                {% if option.selected_value == value %}checked{% endif %}
+                                type="radio" 
+                                name="{{ option.name }}" 
+                                value="{{ value }}"
+                                id="{{ option.name }}-{{ value }}"
+                            >
+
+                            <label for="{{ option.name }}-{{ value }}">{{ value }}</label>
+
+                        </div>
+                    {% endfor %}
+                </fieldset>
+            {% endfor %}
+        </div>
+
+        <button type="submit">Add variant button</button>
+    {% endform %}
+
+    <!-- Action button -->
+    <form action="/cart/add" method="post" enctype="multipart/form-data">
+      <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+      <input
+        type="submit"
+        value="Add to cart"
+        class="block rouvier-button rouvier-button-primary !py-6 !cursor-pointer"
+      />
+    </form>
+
+    <!-- Metafields -->
+
+    <h3>Product materials</h3>
+    <p>{{ product.metafields.custom.how_to_style }}</p>
+
+    <h3>Care guide</h3>
+    <p>{{ product.metafields.custom.care_guide }}</p>
+
+    <h3>How to style</h3>
+    <p>{{ product.metafields.custom.product_materials }}</p>
+
   </div>
-  
-  <form action="/cart/add" method="post" enctype="multipart/form-data">
-    <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
-    <button type="submit" class="add-to-cart-button">Add to Cart</button>
-  </form>
 </div>
 
+
 <script>
-    function swapImage(clickedImage) {
-      const largeImage = document.getElementById('large-image');
-  
-      // Store the large image data
-      const tempSrc = largeImage.src;
-      const tempDataSrc = largeImage.dataset.src;
-  
-      // Swap the large image with the clicked thumbnail
-      largeImage.src = clickedImage.dataset.src;
-      largeImage.dataset.src = clickedImage.src;
-  
-      // Replace only the clicked thumbnail's image, keeping others unchanged
-      clickedImage.src = tempDataSrc;
-      clickedImage.dataset.src = tempSrc;
-    }
-  </script>
+  function swapImage(clickedImage) {
+    const largeImage = document.getElementById('large-image');
+
+    // Store the large image data
+    const tempSrc = largeImage.src;
+    const tempDataSrc = largeImage.dataset.src;
+
+    // Swap the large image with the clicked thumbnail
+    largeImage.src = clickedImage.dataset.src;
+    largeImage.dataset.src = clickedImage.src;
+
+    // Replace only the clicked thumbnail's image, keeping others unchanged
+    clickedImage.src = tempDataSrc;
+    clickedImage.dataset.src = tempSrc;
+  }
+
+</script>
 
 {% schema %}
 {
