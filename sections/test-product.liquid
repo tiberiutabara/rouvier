@@ -169,6 +169,7 @@
                             <span>{{ 'products.product.volume_pricing.note' | t }}</span>
                           </div>
                         {%- endif -%}
+                        {% comment %} REMOVE TEXT "TAXES INCLUDED"
                         {%- if cart.taxes_included or cart.duties_included or shop.shipping_policy.body != blank -%}
                           <div class="product__tax caption rte">
                             {%- if cart.duties_included and cart.taxes_included -%}
@@ -183,6 +184,7 @@
                             {%- endif -%}
                           </div>
                         {%- endif -%}
+                        {% endcomment %}
                         <div {{ block.shopify_attributes }}>
                           {%- assign product_form_installment_id = 'product-form-installment-' | append: section.id -%}
                           {%- form 'product', product, id: product_form_installment_id, class: 'installment caption-large' -%}
@@ -243,7 +245,7 @@
                         </p>
                       {%- when 'description' -%}
                         {%- if product.description != blank -%}
-                          <div class="product__description rte quick-add-hidden" {{ block.shopify_attributes }}>
+                          <div class="product__description rte quick-add-hidden text-[14px] text-[#252827]" {{ block.shopify_attributes }}>
                             {{ product.description }}
                           </div>
                         {%- endif -%}
