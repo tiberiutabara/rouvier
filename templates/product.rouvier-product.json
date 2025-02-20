@@ -7,11 +7,60 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
- {
+{
   "sections": {
-    "custom_product_XwBV3W": {
+    "custom_product_VpR3y3": {
       "type": "custom-product",
-      "settings": {}
+      "blocks": {
+        "title_nte8AN": {
+          "type": "title",
+          "settings": {}
+        },
+        "price_c4j9em": {
+          "type": "price",
+          "settings": {}
+        },
+        "description_AmmYbg": {
+          "type": "description",
+          "settings": {}
+        },
+        "variant_picker_tLtNfn": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "buy_buttons_WWyWhh": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        }
+      },
+      "block_order": [
+        "title_nte8AN",
+        "price_c4j9em",
+        "description_AmmYbg",
+        "variant_picker_tLtNfn",
+        "buy_buttons_WWyWhh"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "",
+        "media_size": "large",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "stacked",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "mobile_thumbnails": "hide",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     },
     "related-products": {
       "type": "related-products",
@@ -33,7 +82,7 @@
     }
   },
   "order": [
-    "custom_product_XwBV3W",
+    "custom_product_VpR3y3",
     "related-products"
   ]
 }
