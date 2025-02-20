@@ -667,9 +667,6 @@
   .w-10 {
     width: calc(var(--spacing) * 10);
   }
-  .w-\[48\%\] {
-    width: 48%;
-  }
   .w-\[50\%\] {
     width: 50%;
   }
@@ -838,23 +835,11 @@
   .text-center {
     text-align: center;
   }
-  .\!text-\[14px\] {
-    font-size: 14px !important;
-  }
-  .\!text-\[15px\] {
-    font-size: 15px !important;
-  }
   .text-\[14px\] {
     font-size: 14px;
   }
-  .text-\[15px\] {
-    font-size: 15px;
-  }
   .text-\[15px\]\! {
     font-size: 15px !important;
-  }
-  .text-\[16px\] {
-    font-size: 16px;
   }
   .font-\[15px\] {
     --tw-font-weight: 15px;
@@ -950,13 +935,6 @@
     &:hover {
       @media (hover: hover) {
         text-decoration-line: underline;
-      }
-    }
-  }
-  .hover\:opacity-80 {
-    &:hover {
-      @media (hover: hover) {
-        opacity: 80%;
       }
     }
   }
