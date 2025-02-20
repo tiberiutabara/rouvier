@@ -1,7 +1,7 @@
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'section-collection-list.css' | asset_url | stylesheet_tag }}
 
-<div class="w-full px-[10px]">
+<div class="w-full !ml-[10px]">
   <h1 class="title title--primary inline-richtext{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %} text-center py-[20px]">
     {{ section.settings.title }}
   </h1>
@@ -25,12 +25,12 @@
   -%}
   {%- paginate collections by paginate_by -%}
     <ul
-      class="collection-list grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down flex-wrap justify-between"
+      class="collection-list grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down !gap-[10px] mr-[10px] max-md:mr-[20px]"
       role="list"
     >
       {%- for collection in collections -%}
         <li
-          class="collection-list__item grid__item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+          class="collection-list__item grid__item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %} !min-w-[calc(25%-10px)]"
           {% if settings.animations_reveal_on_scroll %}
             data-cascade
             style="--animation-order: {{ forloop.index }};"

@@ -81,7 +81,7 @@
     <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
       <div class="flex max-lg:flex-col justify-center w-full gap-[80px] max-lg:gap-[40px] max-md:gap-0 px-[10px]">
         <!-- Gallery Desktop -->
-        <div class="flex max-w-[800px] max-lg:w-full max-lg:max-w-[616px] max-lg:justify-center max-lg:mx-auto max-lg:mb-[40px] gap-[20px] justify-between max-2xl:justify-end max-2xl:gap-[20px]">
+        <div class="flex max-w-[800px] max-lg:w-full max-lg:max-w-[616px] max-lg:justify-center max-lg:mx-auto max-lg:mb-[40px] gap-[20px] justify-end 2xl:gap-[40px]">
           <div class="flex flex-col gap-[10px]">
             {% for media in product.media %}
               {%- if media.media_type == 'image' -%}
@@ -118,9 +118,11 @@
         </div>
 
         <!-- Product informations -->
-        <div class="w-[50%] max-w-[616px] max-lg:w-full max-lg:mx-auto">
+        <div class="w-[50%] max-w-[616px] max-lg:w-full max-lg:mx-auto max-md:!max-w-[95%] justify-self-center">
           <!-- custom breadcrumbs -->
-          {% render 'breadcrumbs' %}
+          <div class="mb-[20px]">
+            {% render 'breadcrumbs' %}
+          </div>
 
           <!-- DAWN CODE -->
 
@@ -252,7 +254,7 @@
                   {%- when 'description' -%}
                     {%- if product.description != blank -%}
                       <div
-                        class="product__description rouvier-product-description rte quick-add-hidden text-[14px] text-[#252827] max-w-[90%]"
+                        class="product__description rouvier-product-description rte quick-add-hidden text-[14px] text-[#252827]"
                         {{ block.shopify_attributes }}
                       >
                         {{ product.description }}

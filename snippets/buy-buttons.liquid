@@ -60,7 +60,7 @@
             {%- render 'gift-card-recipient-form', product: product, form: form, section: section -%}
           {%- endif -%}
 
-          <div class="product-form__buttons">
+          <div class="product-form__button">
             {%- liquid
               assign check_against_inventory = true
               if product.selected_or_first_available_variant.inventory_management != 'shopify' or product.selected_or_first_available_variant.inventory_policy == 'continue'
@@ -74,6 +74,7 @@
               id="ProductSubmitButton-{{ section_id }}"
               type="submit"
               name="add"
+              class="block max-sm:mx-auto !my-[50px] max-sm:!my-[60px]"
               {% if product.selected_or_first_available_variant.available == false
                 or quantity_rule_soldout
                 or product.selected_or_first_available_variant == null
@@ -81,7 +82,7 @@
                 disabled
               {% endif %}
             >
-              <span class="block rouvier-button rouvier-button-primary !py-6 !cursor-pointer">
+              <span class="rouvier-button rouvier-button-primary !py-6 !cursor-pointer max-sm:!px-[100px]">
                 {%- if product.selected_or_first_available_variant == null -%}
                   {{ 'products.product.unavailable' | t }}
                 {%- elsif product.selected_or_first_available_variant.available == false or quantity_rule_soldout -%}

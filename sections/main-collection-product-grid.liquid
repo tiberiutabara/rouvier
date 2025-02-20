@@ -142,7 +142,7 @@
           </div>
         {%- else -%} <!-- Products render -->
           <div 
-            class="collection{% if section.settings.filter_type != 'vertical' %} {% endif %}"
+            class="collection{% if section.settings.filter_type != 'vertical' %} {% endif %} !mr-[0px]  max-sm:!mr-[0px]"
           >
             <div class="loading-overlay gradient"></div>
             <ul
@@ -152,7 +152,7 @@
                 grid product-grid grid--{{ section.settings.columns_mobile }}-col-tablet-down
                 grid--{{ section.settings.columns_desktop }}-col-desktop
                 {% if section.settings.quick_add == 'bulk' %} collection-quick-add-bulk{% endif %}
-                !gap-[10px] 
+                !gap-[10px] mr-[-10px] max-md:mr-0
               "
             >
               {% assign skip_card_product_styles = false %}
@@ -162,7 +162,7 @@
                   {%- assign lazy_load = true -%}
                 {%- endif -%}
                 <li
-                  class="grid__item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                  class="grid__item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %} !min-w-[calc(25%-10px)]"
                   {% if settings.animations_reveal_on_scroll %}
                     data-cascade
                     style="--animation-order: {{ forloop.index }};"

@@ -22,7 +22,9 @@
 
 <div class="color-{{ section.settings.color_scheme }} gradient">
   <product-recommendations
-    class="related-products page-width section-{{ section.id }}-padding isolate{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+    class="related-products section-{{ section.id }}-padding isolate{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}
+     !ml-[10px] max-sm:!mr-[10px]
+    "
     data-url="{{ routes.product_recommendations_url }}?limit={{ section.settings.products_to_show }}"
     data-section-id="{{ section.id }}"
     data-product-id="{{ product.id }}"
@@ -32,12 +34,12 @@
         {{ section.settings.heading }}
       </h2>
       <ul
-        class="grid product-grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down"
+        class="grid product-grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down !gap-[10px]"
         role="list"
       >
         {% assign skip_card_product_styles = false %}
         {% for recommendation in recommendations.products %}
-          <li class="grid__item">
+          <li class="grid__item !min-w-[calc(25%-10px)]">
             {% render 'card-product',
               card_product: recommendation,
               media_aspect_ratio: section.settings.image_ratio,

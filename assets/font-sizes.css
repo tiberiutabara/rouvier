@@ -62,7 +62,7 @@ p, span, input, textarea, i, b{
     line-height: 18px;
 }
 
-a.menu-drawer__menu-item, a.header__menu-item span{
+a.menu-drawer__menu-item, a.header__menu-item span, .rouvier-price{
     font-family: "Quattrocento Sans", serif;
     font-size: 16px;
     text-decoration: none;
@@ -83,10 +83,12 @@ a.menu-drawer__menu-item:hover, a.header__menu-item span:hover{
 
   h1{
     font-size: 32px;
+    line-height: 35px;
   }
 
   h2{
     font-size: 25px;
+    line-height: 28px;
   }
 
   .announcement-bar__message span{
