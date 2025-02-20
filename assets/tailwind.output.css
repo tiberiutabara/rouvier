@@ -919,6 +919,7 @@
   .max-w-\[800px\] {
     max-width: 800px;
   }
+<<<<<<< Updated upstream
   .max-w-lg {
     max-width: var(--container-lg);
   }
@@ -967,6 +968,11 @@
   .rotate-180 {
     rotate: 180deg;
   }
+=======
+  .border-collapse {
+    border-collapse: collapse;
+  }
+>>>>>>> Stashed changes
   .transform {
     transform: var(--tw-rotate-x) var(--tw-rotate-y) var(--tw-rotate-z) var(--tw-skew-x) var(--tw-skew-y);
   }
@@ -1175,6 +1181,7 @@
   .text-center {
     text-align: center;
   }
+<<<<<<< Updated upstream
   .text-left {
     text-align: left;
   }
@@ -1197,12 +1204,15 @@
   .\!text-\[80px\] {
     font-size: 80px !important;
   }
+=======
+>>>>>>> Stashed changes
   .text-\[14px\] {
     font-size: 14px;
   }
   .text-\[15px\]\! {
     font-size: 15px !important;
   }
+<<<<<<< Updated upstream
   .text-\[18px\] {
     font-size: 18px;
   }
@@ -1220,6 +1230,8 @@
     --tw-font-weight: var(--font-weight-normal) !important;
     font-weight: var(--font-weight-normal) !important;
   }
+=======
+>>>>>>> Stashed changes
   .font-\[15px\] {
     --tw-font-weight: 15px;
     font-weight: 15px;
