@@ -28,8 +28,8 @@
         endif
       -%}
       {%- if picker_type == 'swatch' -%}
-        <fieldset class="js product-form__input product-form__input--swatch">
-          <legend class="text-[14px] text-[#252827]">
+        <fieldset class="js product-form__input product-form__input--swatch max-lg:!mx-auto max-lg:justify-center">
+          <legend class="text-[14px] text-[#252827] text-center mb-3">
             {{ option.name }}:
             <span data-selected-value>
               {{- option.selected_value -}}

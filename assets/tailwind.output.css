@@ -640,6 +640,18 @@
   .mb-0 {
     margin-bottom: calc(var(--spacing) * 0);
   }
+  .mb-1 {
+    margin-bottom: calc(var(--spacing) * 1);
+  }
+  .mb-2 {
+    margin-bottom: calc(var(--spacing) * 2);
+  }
+  .mb-3 {
+    margin-bottom: calc(var(--spacing) * 3);
+  }
+  .mb-10 {
+    margin-bottom: calc(var(--spacing) * 10);
+  }
   .mb-80 {
     margin-bottom: calc(var(--spacing) * 80);
   }
@@ -1161,6 +1173,11 @@
       width: 330px;
     }
   }
+  .max-lg\:\!mx-auto {
+    @media (width < 64rem) {
+      margin-inline: auto !important;
+    }
+  }
   .max-lg\:mx-auto {
     @media (width < 64rem) {
       margin-inline: auto;
@@ -1169,6 +1186,16 @@
   .max-lg\:mb-\[40px\] {
     @media (width < 64rem) {
       margin-bottom: 40px;
+    }
+  }
+  .max-lg\:\!flex {
+    @media (width < 64rem) {
+      display: flex !important;
+    }
+  }
+  .max-lg\:flex {
+    @media (width < 64rem) {
+      display: flex;
     }
   }
   .max-lg\:w-full {
@@ -1184,6 +1211,11 @@
   .max-lg\:flex-col {
     @media (width < 64rem) {
       flex-direction: column;
+    }
+  }
+  .max-lg\:\!justify-center {
+    @media (width < 64rem) {
+      justify-content: center !important;
     }
   }
   .max-lg\:justify-center {
@@ -1288,9 +1320,29 @@
       margin-inline: auto;
     }
   }
+  .max-sm\:\!my-\[20px\] {
+    @media (width < 40rem) {
+      margin-block: 20px !important;
+    }
+  }
+  .max-sm\:\!my-\[50px\] {
+    @media (width < 40rem) {
+      margin-block: 50px !important;
+    }
+  }
   .max-sm\:\!my-\[60px\] {
     @media (width < 40rem) {
       margin-block: 60px !important;
+    }
+  }
+  .max-sm\:\!mt-\[30px\] {
+    @media (width < 40rem) {
+      margin-top: 30px !important;
+    }
+  }
+  .max-sm\:\!mt-\[40px\] {
+    @media (width < 40rem) {
+      margin-top: 40px !important;
     }
   }
   .max-sm\:\!mr-\[0px\] {
@@ -1301,6 +1353,16 @@
   .max-sm\:\!mr-\[10px\] {
     @media (width < 40rem) {
       margin-right: 10px !important;
+    }
+  }
+  .max-sm\:\!mb-\[50px\] {
+    @media (width < 40rem) {
+      margin-bottom: 50px !important;
+    }
+  }
+  .max-sm\:\!mb-\[60px\] {
+    @media (width < 40rem) {
+      margin-bottom: 60px !important;
     }
   }
   .max-sm\:mb-\[20px\] {
