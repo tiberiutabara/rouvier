@@ -15,36 +15,40 @@
     .breadcrumb.visible {
         opacity: 1;
     }
-    .breadcrumb a{
+    .breadcrumb a {
         font-size: 14px;
         color: #252827;
     }
-    .breadcrumb a:hover{
+    .breadcrumb a:hover {
         text-decoration: underline;
     }
-  </style>
+</style>
   
-  <nav class="breadcrumb" role="navigation" aria-label="breadcrumbs">
-      <a href="/" title="Home">Home</a>
-      <span aria-hidden="true">›</span>
-      <a href="" id="breadcrumb-collection"></a>
-      <span aria-hidden="true">›</span>
-      <span>{{ product.title }}</span>
-  </nav>
+<nav class="breadcrumb" role="navigation" aria-label="breadcrumbs">
+    <a href="/" title="Home">Home</a>
+    <span id="breadcrumb-separator" aria-hidden="true">›</span>
+    <a href="" id="breadcrumb-collection"></a>
+    <span id="breadcrumb-product-separator" aria-hidden="true">›</span>
+    <span>{{ product.title }}</span>
+</nav>
   
-  <script>
+<script>
     document.addEventListener("DOMContentLoaded", function () {
         const breadcrumbContainer = document.querySelector(".breadcrumb");
         const collectionElement = document.getElementById("breadcrumb-collection");
-  
-        if (!breadcrumbContainer || !collectionElement) return;
-  
-        let breadcrumbData = JSON.parse(localStorage.getItem("breadcrumbData")) || { home: "/", collection: "", product: "" };
-  
+        const separator = document.getElementById("breadcrumb-separator");
+        const productSeparator = document.getElementById("breadcrumb-product-separator");
+
+        if (!breadcrumbContainer || !collectionElement || !separator || !productSeparator) return;
+
+        let breadcrumbData = JSON.parse(localStorage.getItem("breadcrumbData")) || { home: "/", collection: "", collectionTitle: "", product: "" };
+
         if (breadcrumbData.collection) {
             collectionElement.setAttribute("href", breadcrumbData.collection);
             collectionElement.textContent = breadcrumbData.collectionTitle.replace(/ – .*/, "");
+        } else {
+            separator.style.display = "none";
+            collectionElement.style.display = "none";
         }
     });
-  </script>
-  
+</script>
