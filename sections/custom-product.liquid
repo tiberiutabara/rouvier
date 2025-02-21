@@ -85,7 +85,7 @@
     <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
       <div class="flex max-lg:flex-col justify-center w-full gap-[80px] max-lg:gap-[40px] max-md:gap-0 px-[10px]">
         <!-- Gallery Desktop -->
-        <div class="flex max-w-[800px] max-lg:w-full max-lg:max-w-[616px] max-lg:justify-center max-lg:mx-auto max-lg:mb-[40px] gap-[20px] justify-end 2xl:gap-[40px]">
+        <div class="flex max-w-[800px] max-lg:w-full max-lg:max-w-[616px] max-lg:justify-start px-[10px] max-lg:mx-auto max-lg:mb-[40px] gap-[20px] justify-end 2xl:gap-[40px] max-sm:gap-[10px]">
           <div class="flex flex-col gap-[10px]">
             {% for media in product.media %}
               {%- if media.media_type == 'image' -%}
@@ -93,7 +93,7 @@
                   <img
                     src="{{ media | image_url: width: 1000 }}"
                     alt="{{ product.title }}"
-                    class="object-cover cursor-pointer w-[138px] h-[192px] max-2xl:w-[115px] max-2xl:h-[152px] max-xl:w-[77px] max-xl:h-[102px]"
+                    class="object-cover cursor-pointer w-[138px] h-[192px] max-2xl:w-[115px] max-2xl:h-[152px] max-xl:w-[77px] max-xl:h-[102px] max-sm:w-[64px] max-sm:h-[85px]"
                     loading="lazy"
                     data-src="{{ media | image_url: width: 1000 }}"
                     data-index="{{ forloop.index }}"
@@ -111,7 +111,7 @@
             <img
               src="{{ first_media | image_url: width: 1000 }}"
               alt="{{ product.title }}"
-              class="block object-cover cursor-pointer w-[600px] h-[798px] max-2xl:w-[480px] max-2xl:h-[638px] max-xl:w-[330px] max-xl:h-[438px]"
+              class="block object-cover cursor-pointer w-[600px] h-[798px] max-2xl:w-[480px] max-2xl:h-[638px] max-xl:w-[330px] max-xl:h-[438px] max-sm:w-[280px] max-sm:h-[370px]"
               loading="eager"
               id="large-image"
               data-src="{{ first_media | image_url: width: 1000 }}"
